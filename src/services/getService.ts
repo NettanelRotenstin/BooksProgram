@@ -12,3 +12,12 @@ export const getBookService = async (bookId: string) => {
         return "Book not addad"
     }
 }
+
+//get all books service
+export const getAllBooksService = async () => {
+    try {
+        return booksArrey
+    } catch (error) {
+        return "No books found"
+    }
+}
