@@ -9,7 +9,7 @@ export const addBookService = async (book: Book) => {
             book.id = v4()
             booksArrey.push(book)
             console.log(booksArrey)
-            return "Book added successfully"
+            return book
         }
         else{
             return "Book not addad"
