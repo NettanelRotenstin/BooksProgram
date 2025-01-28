@@ -1,7 +1,7 @@
 const {uuidv4} = require('uuid')
 
 //type of book
-export type book = {
+export type Book = {
     id:string,
     name:string
 }
