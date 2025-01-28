@@ -8,7 +8,6 @@
   "name": "booksprogram",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "start": "nodemon dist/index.js"
   },
