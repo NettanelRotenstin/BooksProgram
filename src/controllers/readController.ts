@@ -1,7 +1,7 @@
-import { Request, Response } from "express"
+
+import express, { Request, Response } from "express"
 import { getAllBooksService, getBookService } from "../services/getService"
 
-const { Request, Response } = require("express")
 export const getBook = async (req: Request, res: Response): Promise<void> => {
     try {
         const resFromGetService = await getBookService(req.params.id)
