@@ -3,12 +3,12 @@ import { addBook } from "../controllers/postController"
 import { getAllBooks, getBook } from "../controllers/readController"
 import { updateBook } from "../controllers/updateController"
 
-const {Router} = require('express')
+import {Router} from 'express'
 
 const router = Router()
-
+ 
 //post book route
-router.post('/POST/books',addBook)
+router.post('/POST/books', addBook)
 
 //delete book route
 router.delete('/DELETE/books/:id',  deleteBook)

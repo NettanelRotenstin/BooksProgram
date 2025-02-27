@@ -1,19 +1,16 @@
-import { booksArrey, updateArr } from "../db/booksArrey"
+import bookModel from "../models/bookModel"
 
-//remove book service
+ //remove book service
 export const deleteBookService = async (bookId: string) => {
     try {
-        console.log(bookId)
         if (bookId) {
-            const numBooks = booksArrey.length
-            const newArr = booksArrey.filter(b => b.id != bookId)
-            updateArr(newArr)
-            if (newArr.length != numBooks) {
-                return true
-            }
+           const book = await bookModel.findByIdAndDelete(bookId)
+           return book
         }
-        return false
+        throw new Error("book not found");
+        
     } catch (error) {
-        console.log(error)
+        throw new Error("error in deleteBookService");
+        
     }
 }

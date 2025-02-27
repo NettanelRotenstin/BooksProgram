@@ -1,14 +1,13 @@
 import { v4 } from "uuid";
-import { booksArrey } from "../db/booksArrey";
 import { Book } from "../types/Book";
+import bookModel from "../models/bookModel";
 
 //add book service include validation
 export const addBookService = async (book: Book) => {
     try {
-        if (typeof (book.name) === typeof ("") && book.name != "" && typeof (book.author) == typeof ("") && book.author != "" && typeof (book.publishYear) == typeof (1) && typeof (book.price) == typeof (1)) {
-            book.id = v4()
-            booksArrey.push(book)
-            console.log(booksArrey)
+        if (typeof (book.name) === typeof ("") && book.name != "" ) {
+            const newBook = new bookModel(book)
+            await newBook.save
             return book
         }
         else {

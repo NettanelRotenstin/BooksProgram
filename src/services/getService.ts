@@ -1,23 +1,24 @@
-import { booksArrey } from "../db/booksArrey"
+ import bookModel from "../models/bookModel"
 import { Book } from "../types/Book"
 
 //get book service 
 export const getBookService = async (bookId: string) => {
     try {
-        const book: Book | undefined = await booksArrey.find(b => b.id == bookId)
+        const book: Book | null | undefined = await bookModel.findById(bookId)
         if(book)return book
         return "Book not found"
     } catch (error) {
-        console.log(error)
-        return "Book not addad"
+        throw new Error("book not found");
+        
     }
 }
 
 //get all books service
 export const getAllBooksService = async () => {
     try {
-        return booksArrey
+        return bookModel.find({})
     } catch (error) {
-        return "No books found"
+        throw new Error("error in get all books");
+        
     }
 }
